@@ -6,8 +6,8 @@ import os
 
 # Title and image
 st.set_page_config(page_title="SWI Prediction", layout="centered")
-st.markdown("<h1 style='text-align: center; color: navy;'>Gradient Boosting-Based Modeling of Seawater Intrusion</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center;'>in Sloping Coastal Aquifers</h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>Gradient Boosting-Based Modeling of Seawater Intrusion</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: white;'>in Sloping Coastal Aquifers</h3>", unsafe_allow_html=True)
 
 # Load image
 if os.path.exists("sketch.png"):
@@ -15,7 +15,7 @@ if os.path.exists("sketch.png"):
     st.image(image, use_container_width=True)
 
 # Developer credit
-st.markdown("<p style='text-align: center; font-weight: bold;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-weight: bold; color: white;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
 
 # Load model
 @st.cache_resource
