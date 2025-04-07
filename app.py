@@ -12,7 +12,7 @@ st.markdown("<h3 style='text-align: center;'>in Sloping Coastal Aquifers</h3>", 
 # Load image
 if os.path.exists("sketch.png"):
     image = Image.open("sketch.png")
-    st.image(image, use_column_width=True)
+    st.image(image, use_container_width=True)
 
 # Developer credit
 st.markdown("<p style='text-align: center; font-weight: bold;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
