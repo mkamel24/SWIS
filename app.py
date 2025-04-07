@@ -10,8 +10,8 @@ st.markdown("<h1 style='text-align: center; color: navy;'>Gradient Boosting-Base
 st.markdown("<h3 style='text-align: center;'>in Sloping Coastal Aquifers</h3>", unsafe_allow_html=True)
 
 # Load image
-if os.path.exists("GUI.png"):
-    image = Image.open("GUI.png")
+if os.path.exists("sketch.png"):
+    image = Image.open("sketch.png")
     st.image(image, use_column_width=True)
 
 # Developer credit
