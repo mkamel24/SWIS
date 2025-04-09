@@ -1,114 +1,43 @@
 import streamlit as st
 import joblib
-import numpy as np
-from PIL import Image
 import os
+from PIL import Image
 
-# Set page config first (this must be the very first command)
-st.set_page_config(page_title="SWI Prediction", layout="wide", page_icon="🌊")
+# Load model
+model_path = "C:/Users/asus1/Desktop/XGB.joblib"
+if not os.path.exists(model_path):
+    st.error("Model file not found. Please check the path.")
+    st.stop()
 
-# Set a bright, modern background color scheme with easy readability
-st.markdown("""
-    <style>
-        .reportview-container {
-            background-color: #ffffff;
-            color: #333333;
-        }
-        .sidebar .sidebar-content {
-            background-color: #ffffff;
-        }
-        .stButton>button {
-            background-color: #1E90FF;
-            color: white;
-            font-size: 18px;
-            border-radius: 8px;
-        }
-        .stTextInput input, .stNumberInput input {
-            background-color: #f0f0f0;
-            color: #333333;
-            font-size: 16px;
-            padding: 12px;
-            border-radius: 8px;
-            width: 250px;  /* Adjust the width here */
-        }
-        h1, h2 {
-            font-family: "CMU Bright", sans-serif;
-            color: #1E90FF;
-        }
-        .stForm label {
-            font-family: "CMU Bright", sans-serif;
-            font-size: 16px;
-            color: #333333;
-        }
-        .stSuccess {
-            background-color: #3CB371;
-            color: white;
-        }
-        .stWarning {
-            background-color: #FFA500;
-            color: black;
-        }
-        .stError {
-            background-color: #FF6347;
-            color: white;
-        }
-        .stExpanderHeader {
-            color: #1E90FF;
-        }
-    </style>
-""", unsafe_allow_html=True)
+model = joblib.load(model_path)
 
-# Title at the top with a larger font size
-st.markdown("<h1 style='text-align: center;'>🌊 Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
+# Load and display image if available
+image_path = "C:/Users/asus1/Desktop/sketch.png"
+if os.path.exists(image_path):
+    image = Image.open(image_path)
+    st.image(image, caption="Conceptual Sketch", use_column_width=True)
 
-# Developers section (larger font for visibility)
-st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #1E90FF;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+# App title
+st.title("Estimating Saltwater Wedge Length in Sloping Coastal Aquifers")
+st.markdown("**Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos**")
 
-# Create two columns for layout
-col1, col2 = st.columns([1, 2])
+st.markdown("### Input Parameters (Dimensionless Terms)")
 
-# Left column: Image of the problem
-with col1:
-    if os.path.exists("sketch.png"):
-        image = Image.open("sketch.png")
-        image = image.resize((550, 275), Image.LANCZOS)
-        st.image(image, use_container_width=True)
+# Input fields
+x1 = st.number_input("Relative Density (ρs/ρf)", min_value=0.0, format="%.5f")
+x2 = st.number_input("Relative Hydraulic Conductivity (KLo²/Q)", min_value=0.0, format="%.5f")
+x3 = st.number_input("Bed Slope (tan(β))", min_value=0.0, format="%.5f")
+x4 = st.number_input("Relative Head Difference (ΔH/Lo)", min_value=0.0, format="%.5f")
+x5 = st.number_input("Relative Recharge Well Distance (Xr/Lo)", min_value=0.0, format="%.5f")
+x6 = st.number_input("Relative Recharge Well Depth (Yr/Lo)", min_value=0.0, format="%.5f")
+x7 = st.number_input("Relative Recharge Well Rate (Qr/Q)", min_value=0.0, format="%.5f")
 
-# Right column: Input panel and output prediction
-with col2:
-    # Load model
-    @st.cache_resource
-    def load_model():
-        return joblib.load("XGB.joblib")
+# Predict button
+if st.button("Predict"):
+    try:
+        input_data = [[x1, x2, x3, x4, x5, x6, x7]]
+        prediction = model.predict(input_data)[0]
+        st.success(f"Predicted SWI Wedge Length Ratio (L/Lo): **{prediction:.4f}**")
+    except Exception as e:
+        st.error(f"Prediction Error: {e}")
 
-    model = load_model()
-
-    # Panel-style for input fields with increased font size
-    st.markdown("### Input Parameters (Dimensionless Terms)", unsafe_allow_html=True)
-
-    # Create a form to input values with compact input fields
-    with st.form("input_form", clear_on_submit=True):
-        with st.expander("Enter Parameters"):
-            # Adjust the input fields to fit smaller widths
-            x1 = st.number_input("Relative Density (ρs/ρf):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative density ratio.", key="x1")
-            x2 = st.number_input("Relative Hydraulic Conductivity (KLo²/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative hydraulic conductivity ratio.", key="x2")
-            x3 = st.number_input("Bed Slope (tan(β)):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the bed slope (tan(β)).", key="x3")
-            x4 = st.number_input("Relative Head Difference (ΔH/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative head difference.", key="x4")
-            x5 = st.number_input("Relative Recharge Well Distance (Xr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well distance.", key="x5")
-            x6 = st.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well depth.", key="x6")
-            x7 = st.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well rate.", key="x7")
-
-            submit = st.form_submit_button("Predict 🌊", use_container_width=True)
-
-    # Predict and display output
-    if submit:
-        # Check if all inputs are zero
-        if all(val == 0.0 for val in [x1, x2, x3, x4, x5, x6, x7]):
-            st.warning("⚠️ Please enter valid values for the parameters. All inputs cannot be zero as it will produce an invalid prediction.")
-        else:
-            try:
-                inputs = np.array([[x1, x2, x3, x4, x5, x6, x7]])
-                prediction = model.predict(inputs)[0]
-                st.success(f"🔍 Predicted SWI Wedge Length Ratio (L/Lo): **{prediction:.4f}**")
-            except Exception as e:
-                st.error(f"❌ Prediction Error: {e}")
