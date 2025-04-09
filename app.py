@@ -58,7 +58,7 @@ with st.form("input_form", clear_on_submit=True):
         x1 = col1.number_input("Relative Density (ρs/ρf):", min_value=0.0, format="%.4f", step=0.0001, help="Enter relative density ratio.")
         x2 = col2.number_input("Relative Hydraulic Conductivity (KLo²/Q):", min_value=0.0, format="%.4f", step=0.0001, help="Enter relative hydraulic conductivity ratio.")
         x3 = col1.number_input("Bed Slope (tan(β)):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the bed slope (tan(β)).")
-        x4 = col2.number_input("Relative Head Difference (ΔH/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative head difference.")
+        x4 = col2.number_input("Relative Head Difference (i/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative head difference.")
         x5 = col1.number_input("Relative Recharge Well Distance (Xr/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well distance.")
         x6 = col2.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well depth.")
         x7 = col1.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well rate.")
