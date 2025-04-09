@@ -41,7 +41,7 @@ with col1:
     # Load and display the image
     if os.path.exists("sketch.png"):
         image = Image.open("sketch.png")
-        image = image.resize((480, 200), Image.LANCZOS)
+        image = image.resize((600, 400), Image.LANCZOS)
         st.image(image, use_container_width=True)
 
 # Right side content: Input panel and output prediction
