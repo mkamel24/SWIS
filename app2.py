@@ -7,38 +7,40 @@ import os
 # Set page config first (this must be the very first command)
 st.set_page_config(page_title="SWI Prediction", layout="wide", page_icon="🌊")
 
-# Set a more colorful and refined background color scheme
+# Set a bright, modern background color scheme with easy readability
 st.markdown("""
     <style>
         .reportview-container {
-            background-color: #2f2f2f;
-            color: white;
+            background-color: #ffffff;
+            color: #333333;
         }
         .sidebar .sidebar-content {
-            background-color: #2f2f2f;
+            background-color: #ffffff;
         }
         .stButton>button {
             background-color: #1E90FF;
             color: white;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         .stTextInput input, .stNumberInput input {
-            background-color: #444444;
-            color: white;
-            font-size: 16px;
-            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333333;
+            font-size: 18px;
+            padding: 12px;
+            border-radius: 8px;
         }
-        h1 {
-            font-size: 24px;
+        h1, h2 {
+            font-family: "CMU Bright", sans-serif;
             color: #1E90FF;
         }
         .stForm label {
-            color: #1E90FF;
+            font-family: "CMU Bright", sans-serif;
             font-size: 16px;
+            color: #333333;
         }
         .stSuccess {
-            background-color: #FFFFFF;
+            background-color: #3CB371;
             color: white;
         }
         .stWarning {
@@ -50,7 +52,7 @@ st.markdown("""
             color: white;
         }
         .stExpanderHeader {
-            color: #FFD700;
+            color: #1E90FF;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -59,7 +61,7 @@ st.markdown("""
 st.markdown("<h1 style='text-align: center;'>🌊 Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
 
 # Developers section (larger font for visibility)
-st.markdown("<p style='text-align: center; font-size: 24px; font-weight: bold; color: #FFD700;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #1E90FF;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
 
 # Create two columns for layout
 col1, col2 = st.columns([1, 2])
