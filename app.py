@@ -35,8 +35,8 @@ col1, col2 = st.columns([1, 2])
 
 # Left side content: Title, developer info, and image
 with col1:
-    st.markdown("<h1 style='text-align: center; color: #000000; font-size: 28px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: left; font-size: 20px; font-weight: bold; color: #000000;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #000000; font-size: 20px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #000000;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
     
     # Load and display the image
     if os.path.exists("sketch.png"):
