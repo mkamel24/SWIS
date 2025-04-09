@@ -11,20 +11,30 @@ if not os.path.exists(model_path):
 
 model = joblib.load(model_path)
 
-# Load image if it exists
+# Load and resize image
 image_path = os.path.join(os.path.dirname(__file__), "sketch.png")
 if os.path.exists(image_path):
     image = Image.open(image_path)
-    st.image(image, caption="Conceptual Sketch", use_container_width=True)
+    scale_ratio = 0.6  # Adjust this between 0.1 to 1.0 as needed
+    new_size = (int(image.width * scale_ratio), int(image.height * scale_ratio))
+    resized_image = image.resize(new_size)
+    st.image(resized_image, caption="Conceptual Sketch")
 
-# App title and authors
-st.title("Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models")
-st.markdown("**Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos**")
+# Custom fonts and title using HTML/CSS
+st.markdown("""
+    <h2 style='text-align: center; font-family: Georgia, serif; color: #2F4F4F;'>
+        Estimating Saltwater Wedge Length in Sloping Coastal Aquifers
+    </h2>
+    <p style='text-align: center; font-size:16px; font-family:Courier New; color: #555;'>
+        <strong>Using Explainable Machine Learning Models</strong><br>
+        Developers: <em>Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</em>
+    </p>
+""", unsafe_allow_html=True)
 
 # Input form
-st.markdown("### Input Parameters (Dimensionless Terms)")
+st.markdown("<h4 style='font-family:Verdana; color:#003366;'>Input Parameters (Dimensionless Terms)</h4>", unsafe_allow_html=True)
 
-# Use columns for compact input layout
+# Compact inputs
 col1, col2 = st.columns(2)
 
 with col1:
@@ -38,7 +48,7 @@ with col2:
     x6 = st.number_input("Relative Recharge Well Depth Ratio (Yr/Lo)", min_value=0.0, format="%.5f", key="x6")
     x7 = st.number_input("Relative Recharge Well Rate Ratio (Qr/Q)", min_value=0.0, format="%.5f", key="x7")
 
-# Prediction logic
+# Prediction
 if st.button("Predict"):
     if all(v == 0.0 for v in [x1, x2, x3, x4, x5, x6, x7]):
         st.warning("Please enter non-zero values for at least one input to make a prediction.")
