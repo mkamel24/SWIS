@@ -52,7 +52,7 @@ model = load_model()
 st.markdown("### Input Parameters (Dimensionless Terms)", unsafe_allow_html=True)
 with st.form("input_form", clear_on_submit=True):
     # Create a panel with increased font size for the inputs
-    with st.beta_expander("Enter Parameters"):
+    with st.expander("Enter Parameters"):
         col1, col2 = st.columns(2)
 
         x1 = col1.number_input("Relative Density (ρs/ρf):", min_value=0.0, format="%.4f", step=0.0001, help="Enter relative density ratio.")
