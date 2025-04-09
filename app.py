@@ -7,32 +7,59 @@ import os
 # Set page config first (this must be the very first command)
 st.set_page_config(page_title="SWI Prediction", layout="wide", page_icon="🌊")
 
-# Set a light background color for the app
+# Set a dark theme with colorful accents
 st.markdown("""
     <style>
         .reportview-container {
-            background-color: #000000;
+            background-color: #1e1e1e;
+            color: white;
         }
         .sidebar .sidebar-content {
-            background-color: #000000;
+            background-color: #1e1e1e;
         }
         .stButton>button {
-            background-color: #000000;
+            background-color: #4CAF50;
             color: white;
             font-size: 18px;
         }
         .stTextInput input {
+            background-color: #333333;
+            color: white;
             font-size: 18px;
         }
         .stNumberInput input {
+            background-color: #333333;
+            color: white;
             font-size: 18px;
+        }
+        h1 {
+            font-size: 35px;
+            color: #FFD700;
+        }
+        .stForm label {
+            color: #FFD700;
+        }
+        .stSuccess {
+            background-color: #3CB371;
+            color: white;
+        }
+        .stWarning {
+            background-color: #FFA500;
+            color: black;
+        }
+        .stError {
+            background-color: #FF6347;
+            color: white;
+        }
+        .stExpanderHeader {
+            color: #FFD700;
         }
     </style>
 """, unsafe_allow_html=True)
 
 # Title at the top with a larger font size
-st.markdown("<h1 style='text-align: center; color: #000000; font-size: 40px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #000000;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🌊 Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
 
 # Create two columns
 col1, col2 = st.columns([1, 2])
@@ -69,7 +96,7 @@ with col2:
             x6 = st.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well depth.")
             x7 = st.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well rate.")
 
-            submit = st.form_submit_button("Predict", use_container_width=True)
+            submit = st.form_submit_button("Predict 🌊", use_container_width=True)
 
     # Predict and display output
     if submit:
