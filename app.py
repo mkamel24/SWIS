@@ -30,7 +30,7 @@ st.markdown("""
             border-radius: 5px;
         }
         h1 {
-            font-size: 40px;
+            font-size: 24px;
             color: #1E90FF;
         }
         .stForm label {
@@ -38,7 +38,7 @@ st.markdown("""
             font-size: 16px;
         }
         .stSuccess {
-            background-color: #3CB371;
+            background-color: #FFFFFF;
             color: white;
         }
         .stWarning {
@@ -68,7 +68,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     if os.path.exists("sketch.png"):
         image = Image.open("sketch.png")
-        image = image.resize((600, 400), Image.LANCZOS)
+        image = image.resize((550, 275), Image.LANCZOS)
         st.image(image, use_container_width=True)
 
 # Right column: Input panel and output prediction
