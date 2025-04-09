@@ -39,6 +39,7 @@ st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; c
 # Load image (after developer credit)
 if os.path.exists("sketch.png"):
     image = Image.open("sketch.png")
+    image = image.resize((480, 200), Image.LANCZOS)
     st.image(image, use_container_width=True)
 
 # Load model
