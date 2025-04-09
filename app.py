@@ -30,14 +30,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Title and image
-st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 36px;'>Gradient Boosting-Based Modeling of Seawater Intrusion</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: white; font-size: 22px;'>in Sloping Coastal Aquifers</h3>", unsafe_allow_html=True)
+# Title and image (single-line title)
+st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 36px;'>Gradient Boosting-Based Modeling of Seawater Intrusion in Sloping Coastal Aquifers</h1>", unsafe_allow_html=True)
 
-# Developer credit
+# Developer credit (centered and highlighted)
 st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #FFD700;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
 
-# Load image (after developers)
+# Load image (after developer credit)
 if os.path.exists("sketch.png"):
     image = Image.open("sketch.png")
     st.image(image, use_container_width=True)
@@ -59,7 +58,7 @@ with st.form("input_form", clear_on_submit=True):
         x1 = col1.number_input("Relative Density (ρs/ρf):", min_value=0.0, format="%.4f", step=0.0001, help="Enter relative density ratio.")
         x2 = col2.number_input("Relative Hydraulic Conductivity (KLo²/Q):", min_value=0.0, format="%.4f", step=0.0001, help="Enter relative hydraulic conductivity ratio.")
         x3 = col1.number_input("Bed Slope (tan(β)):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the bed slope (tan(β)).")
-        x4 = col2.number_input("Relative Head Difference (i/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative head difference.")
+        x4 = col2.number_input("Relative Head Difference (ΔH/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative head difference.")
         x5 = col1.number_input("Relative Recharge Well Distance (Xr/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well distance.")
         x6 = col2.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well depth.")
         x7 = col1.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, format="%.4f", step=0.0001, help="Enter the relative recharge well rate.")
