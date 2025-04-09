@@ -11,13 +11,13 @@ st.set_page_config(page_title="SWI Prediction", layout="wide", page_icon="🌊")
 st.markdown("""
     <style>
         .reportview-container {
-            background-color: #f0f2f6;
+            background-color: #000000;
         }
         .sidebar .sidebar-content {
-            background-color: #f0f2f6;
+            background-color: #000000;
         }
         .stButton>button {
-            background-color: #1E90FF;
+            background-color: #000000;
             color: white;
             font-size: 18px;
         }
@@ -35,8 +35,8 @@ col1, col2 = st.columns([1, 2])
 
 # Left side content: Title, developer info, and image
 with col1:
-    st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 32px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #FFD700;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 28px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; font-size: 20px; font-weight: bold; color: #FFD700;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
     
     # Load and display the image
     if os.path.exists("sketch.png"):
