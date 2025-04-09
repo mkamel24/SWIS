@@ -31,8 +31,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title and image (single-line title)
-st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 32px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models
-</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 32px;'>Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models</h1>", unsafe_allow_html=True)
 
 # Developer credit (centered and highlighted)
 st.markdown("<p style='text-align: center; font-size: 20px; font-weight: bold; color: #FFD700;'>Developers: Mohamed Kamel Elshaarawy & Asaad Mater Armanuos</p>", unsafe_allow_html=True)
