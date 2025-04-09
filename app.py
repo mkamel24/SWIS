@@ -15,7 +15,7 @@ model = joblib.load(model_path)
 image_path = os.path.join(os.path.dirname(__file__), "sketch.png")
 if os.path.exists(image_path):
     image = Image.open(image_path)
-    st.image(image, caption="Conceptual Sketch", use_column_width=True)
+    st.image(image, caption="Conceptual Sketch", use_container_width=True)
 
 # App title and authors
 st.title("Estimating Saltwater Wedge Length in Sloping Coastal Aquifers Using Explainable Machine Learning Models")
