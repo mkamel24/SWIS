@@ -26,9 +26,10 @@ st.markdown("""
         .stTextInput input, .stNumberInput input {
             background-color: #f0f0f0;
             color: #333333;
-            font-size: 18px;
+            font-size: 16px;
             padding: 12px;
             border-radius: 8px;
+            width: 250px;  /* Adjust the width here */
         }
         h1, h2 {
             font-family: "CMU Bright", sans-serif;
@@ -88,14 +89,14 @@ with col2:
     # Create a form to input values with compact input fields
     with st.form("input_form", clear_on_submit=True):
         with st.expander("Enter Parameters"):
-            # Adjust the input fields to fit 6 digits with 6 decimals
-            x1 = st.number_input("Relative Density (ρs/ρf):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative density ratio.")
-            x2 = st.number_input("Relative Hydraulic Conductivity (KLo²/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative hydraulic conductivity ratio.")
-            x3 = st.number_input("Bed Slope (tan(β)):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the bed slope (tan(β)).")
-            x4 = st.number_input("Relative Head Difference (ΔH/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative head difference.")
-            x5 = st.number_input("Relative Recharge Well Distance (Xr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well distance.")
-            x6 = st.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well depth.")
-            x7 = st.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well rate.")
+            # Adjust the input fields to fit smaller widths
+            x1 = st.number_input("Relative Density (ρs/ρf):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative density ratio.", key="x1")
+            x2 = st.number_input("Relative Hydraulic Conductivity (KLo²/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter relative hydraulic conductivity ratio.", key="x2")
+            x3 = st.number_input("Bed Slope (tan(β)):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the bed slope (tan(β)).", key="x3")
+            x4 = st.number_input("Relative Head Difference (ΔH/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative head difference.", key="x4")
+            x5 = st.number_input("Relative Recharge Well Distance (Xr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well distance.", key="x5")
+            x6 = st.number_input("Relative Recharge Well Depth (Yr/Lo):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well depth.", key="x6")
+            x7 = st.number_input("Relative Recharge Well Rate (Qr/Q):", min_value=0.0, max_value=999999.999999, format="%.6f", help="Enter the relative recharge well rate.", key="x7")
 
             submit = st.form_submit_button("Predict 🌊", use_container_width=True)
 
