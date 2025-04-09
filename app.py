@@ -4,6 +4,9 @@ import numpy as np
 from PIL import Image
 import os
 
+# Set page config first (this must be the very first command)
+st.set_page_config(page_title="SWI Prediction", layout="centered", page_icon="🌊")
+
 # Set a light background color for the app
 st.markdown("""
     <style>
@@ -28,7 +31,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title and image
-st.set_page_config(page_title="SWI Prediction", layout="centered", page_icon="🌊")
 st.markdown("<h1 style='text-align: center; color: #1E90FF; font-size: 36px;'>Gradient Boosting-Based Modeling of Seawater Intrusion</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: white; font-size: 22px;'>in Sloping Coastal Aquifers</h3>", unsafe_allow_html=True)
 
